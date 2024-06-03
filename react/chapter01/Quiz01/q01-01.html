@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="root2"></div>
+  <div id="root3"></div>
+
+  <script>
+
+    const ingredient01 = ["가지 1개", "간장 2Ts", "설탕 1.5Ts", "식초 1Ts", "다진 마늘 1/2Ts", "버터 2Ts"];
+    const food01 = React.createElement(
+      "ul",
+      { className: "ingredient01" },
+      ingredient01.map((ingredient, i) => React.createElement("li", { key: i }, ingredient))
+    )
+    ReactDOM.render(food01, document.querySelector("#root"));
+
+    const ingredient02 = ["돼지고기 앞다리살 500g", "배추김치 1쪽", "대파 1개", "청양고추 2개", "물 800ml",
+      "된장 1수저", "들기름 2수저", "설탕 1/2수저", "다진마늘 1수저", "후추 2꼬집"];
+    const food02 = React.createElement(
+      "ul",
+      { className: "ingredient02" },
+      ingredient02.map((ingredient, i) => React.createElement("li", { key: i }, ingredient))
+    )
+    ReactDOM.render(food02, document.querySelector("#root2"));
+
+    const ingredient03 = ["팽이버섯 1봉지", "청양고추 1개", "식용유 2스푼", "다진마늘 1큰술",
+      "고추가루 1/2스푼", "설탕 1스푼", "미림 2스푼", "진간장 1스푼", "고추장 1/3스푼", "된장 1/3스푼", "물 2스푼"];
+    const food03 = React.createElement(
+      "ul",
+      { className: "ingredient03"},
+      ingredient03.map((ingredient, i) => React.createElement("li", {key: i}, ingredient))
+    )
+    ReactDOM.render(food03, document.querySelector("#root3"))
+  </script>
+</body>
+
+</html>
