@@ -47,6 +47,18 @@
     function Recipe({name, ingredients, steps, idName}) {
       return (
         <section id={"section" + idName}>
+          <h1>{name}</h1>
+          <ul className="ingredients">
+            {ingredients.map((ingredient, i) => (
+              <li key={i}>{ingredient.name}</li>
+              ))}
+          </ul>
+          <section className="instructions">
+            <h2>조리 절차</h2>
+            {steps.map((step, i) => (
+              <p key={i}>{step}</p>
+            ))}
+          </section>
         </section>
       )
     }
@@ -75,6 +87,7 @@
       )
     }
     // Menu 렌더링
+
     ReactDOM.render(
       <Menu recipes={data} title="맛있는 조리법" />,
       document.querySelector("#root")

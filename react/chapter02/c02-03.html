@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- 바벨 -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    /* 리액트 프래그먼트 - <></> */
+    // 리액트는 둘 이상의 인접한 형제 엘리먼트를 컴포넌트로 렌더링하지 않기 때문에
+    // 이들을 div와 같은 태그로 둘러싸야 함
+    // -> 여기서 불필요한 태그 생성 및 목적없는 다른 태그를 감싸는 태그 생김
+    // 리액트 프래그먼트 사용 시 실제로 만들지 않아도 이런 wrapper의 동작 흉내 가능
+    function Cat({name}){
+      return (
+        // <div>
+        //   <h1>고양이 이름은 {name}입니다.</h1>
+        //   <p>이 고양이는 너무 귀여워요.</p>
+        // </div>
+        <>
+          <h1>고양이 이름은 {name}입니다.</h1>
+          <p>이 고양이는 너무 귀여워요.</p>
+        </>
+      )
+    }
+    ReactDOM.render(<Cat name="나비" />, document.querySelector("#root"));
+  </script>
+</body>
+</html>
