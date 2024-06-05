@@ -1,0 +1,2 @@
+npm install react-icons --save
+-> react-icons 설치

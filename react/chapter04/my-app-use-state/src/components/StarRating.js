@@ -15,6 +15,7 @@ const createArray = length => [...Array(length)]
 //   새 값을 전달하면서 컴포넌트를 다시 렌더링해줌
 export default function StarRating({ totalStars = 5 }) {
   const [selectedStars, setSelectedStars] = useState(3);
+  // selectedStars=5 -> 오류 발생. 화면갱신(렌더링)도 안됨
   return <>
     {createArray(totalStars).map((n, i) =>
       <Star
