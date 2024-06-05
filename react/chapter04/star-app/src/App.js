@@ -4,6 +4,7 @@ import StarRating from "./components/StarRating.js";
 import { useState } from 'react';
 import colorData from './color-data.json';
 import ColorList from './components/ColorList.js'
+import AddColorForm from "./components/AddColorForm.js";
 
 /* 재사용성을 높이기 위한 래팩터링 */
 // 1. style 속성
@@ -25,9 +26,32 @@ import ColorList from './components/ColorList.js'
 
 // App 컴포넌트: 앱에서 상태 저장할 유일한 컴포넌트
 
+// App 컴포넌트의 상태에 저장된 color의 색 평점을 변경
+// -> onRemoveColor에 적용했던 방식을 그대로 onRate이벤트에 적용
+
+// 클릭된 각 별로부터 새 평점을 수집하여 StarRating의 부모에 전달
+
 function App() {
-  const [colors]=useState(colorData.color);
-  return <ColorList colors={colors} />
+  const [colors, setColors] = useState(colorData.color);
+  return <>
+  <AddColorForm />
+    <ColorList
+      colors={colors}
+      onRemoveColor={(id) => {
+        // 매개변수로 넘어온 id값을 사용해 색을 제거함
+        const newColor = colors.filter(color => color.id !== id);
+        setColors(newColor);
+      }}
+      onRateColor={(id, rating) => {
+        // 배열에서 id값이 일치하는 것을 찾아 rating값을 변경 후 새 배열 생성
+        // -> 훅을 통해 새 배열 대입
+        const newColor = colors.map(color => {
+          return color.id === id ? { ...color, rating } : color;
+        })
+        setColors(newColor);
+      }}
+    />
+  </>
 }
 
-export default App;
+export default App; 
