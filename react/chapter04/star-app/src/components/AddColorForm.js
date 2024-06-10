@@ -16,6 +16,10 @@ export default function AddColorForm({ onNewColor = f => f }) {
   // - 색 이름 수집을 위해 폼에 추가한 텍스트 입력에 대한 참조
   const hexColor = useRef();
   // - HTML색 입력의 16진색 값 접근 위한 참조
+  // ref속성 사용하여 jsx에 참조값 직접 설정
+  // AddColorForm.js -> DOM을 통해 폼 값을 저장하기 때문에 제어되지 않은 컴포넌트가 됨
+  // e.g., 리액트 밖 폼에 접근하여 폼에 속한 입력 값을 처리 시 사용 가능, 
+  // but 제어되는 컴포넌트가 더 좋은 접근 방법임
 
   const submit = (e) => {
     e.preventDefault(); // 리셋 방지

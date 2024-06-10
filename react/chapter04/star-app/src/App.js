@@ -1,10 +1,10 @@
 import "./App.css";
 import StarRating from "./components/StarRating.js";
-
 import { useState } from 'react';
 import colorData from './color-data.json';
 import ColorList from './components/ColorList.js'
 import AddColorForm from "./components/AddColorForm.js";
+import AddColorCustom from "./components/AddColorCustom.js";
 
 /* 재사용성을 높이기 위한 래팩터링 */
 // 1. style 속성
@@ -31,10 +31,25 @@ import AddColorForm from "./components/AddColorForm.js";
 
 // 클릭된 각 별로부터 새 평점을 수집하여 StarRating의 부모에 전달
 
+// color
+
 function App() {
   const [colors, setColors] = useState(colorData.color);
+  let colorCount = colors.length;
   return <>
-  <AddColorForm />
+    <AddColorCustom onNewColor={(title, color) => {
+      const newColor = [
+        ...colors,
+        {
+          "id": colorCount++,
+          title,
+          "color": color,
+          "rating": 0,
+        }
+      ]
+      setColors(newColor);
+    }}
+    />
     <ColorList
       colors={colors}
       onRemoveColor={(id) => {
