@@ -1,23 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 import App2 from './App2';
-import App3 from './App3';
-import App4 from './App4';
-import App5 from './App5';
-import App6 from './App6';
-import App7 from './App7';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App3 /> */}
-    {/* <App4 /> */}
-    {/* <App5 /> */}
-    {/* <App6 /> */}
-    <App7 />
+    <BrowserRouter>
+      {/* router 컴포넌트 렌더링
+        - 애플리케이션 컴포넌트 트리 루트 가까이 위치해야 함 */}
+      {/* <App /> */}
+      <App2 />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
