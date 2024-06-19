@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.weather-wrapper {
+  margin: 0 auto;
+  padding: 10px;
+  width: 300px;
+  background-color: rgb(226, 255, 255);
+  border-radius: 30px;
+}
+
+.weather-wrapper p {
+  font-size: 20px;
+}
