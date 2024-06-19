@@ -19,7 +19,7 @@ function App() {
     // 위치: 35.15 / 129.05
     // openweather api 2.5 버전
     // appid=본인api키
-    fetch("https://api.openweathermap.org/data/2.5/weather?lat=35.15&lon=129.05&units=metric&appid=8e3391acf1c77f763202f653f9febcca")
+    fetch("https://api.openweathermap.org/data/2.5/weather?lat=35.15&lon=129.05&units=metric&appid={}")
       .then(result => result.json())
       .then(jsonResult => {
         setTemp(jsonResult.main.temp)
