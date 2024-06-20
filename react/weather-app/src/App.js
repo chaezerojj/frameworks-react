@@ -1,3 +1,4 @@
+import AddCar from '../../car/src/components/AddCar';
 import './App.css';
 import { useState, useEffect } from 'react';
 
